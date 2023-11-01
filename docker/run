@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Exit on any error
+set -e
+
+echo "Entering bash shell in the running container..."
+
+# Navigate to the script's directory (in case it's run from elsewhere)
+cd "$(dirname "$0")/.."
+
+# Get the container ID or name
+CONTAINER_ID_OR_NAME=$(docker-compose ps -q odin)
+
+# Enter bash shell in the running container
+docker exec -it "$CONTAINER_ID_OR_NAME" /bin/bash
+
+echo "Exited bash shell."

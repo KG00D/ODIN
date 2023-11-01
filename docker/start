@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Exit on any error
+set -e
+
+echo "Starting the container..."
+
+# Navigate to the script's directory (in case it's run from elsewhere)
+cd "$(dirname "$0")/.."
+
+# Start the container using Docker Compose
+docker-compose up
+
+echo "Container started. Your application is running on port 4000."

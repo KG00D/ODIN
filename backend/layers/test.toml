@@ -1,0 +1,3 @@
+[lead_score_predictor]
+predictions_location = "s3://predictions_bucket/lead_score_predictor/"
+lookback = 30
