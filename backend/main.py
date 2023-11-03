@@ -7,15 +7,14 @@ from watchdog.events import FileSystemEventHandler
 app = FastAPI()
 
 
-
-def serve_features_route(model_name: str, model_config: file, prediction_date: date):
+def serve_features(model_name: str, model_config: file, feature_date: date):
     @app.get(f"/predictions/{model_name}/{date}")
     async def get_predictions():
 
         return {"model": model_name, "data:" "Model prediction"}
     
-def get_features_route(model_name: str, model_config: file, prediction_date: date):
-    @app.get(f"/predictions/{model_name}/{date}")
+def get_features(model_name: str, model_config: file, feature_date: date):
+    @app.post(f"/predictions/{model_name}/{date}")
     async def get_predictions():
 
         return {"model": model_name, "data:" "Model prediction"}
