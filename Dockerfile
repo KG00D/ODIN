@@ -1,8 +1,12 @@
 # Use an official Python runtime as a parent image
-FROM python:3.11.3-alpine
+FROM python:3.11.3-slim
+
+RUN apt-get update && apt-get upgrade -y \
+    && apt-get install --no-install-recommends -y -q \
+    git && apt-get clean
 
 # Set the working directory in the container to /app
-WORKDIR /app
+WORKDIR $PYSETUP_PATH
 
 # Install Poetry
 # RUN pip install poetry
@@ -21,10 +25,10 @@ WORKDIR /app
 # COPY . /app
 
 # Make port 80 available to the world outside this container
-EXPOSE 80
+# EXPOSE 80
 
 # Define environment variable
-ENV NAME World
+# ENV NAME World
 
 # Run app.py when the container launches
-CMD ["python", "app.py"]
+# CMD ["python", "app.py"]

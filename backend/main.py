@@ -8,7 +8,13 @@ app = FastAPI()
 
 
 
-def get_predictions_route(model_name: str, model_config: file, prediction_date: date):
+def serve_features_route(model_name: str, model_config: file, prediction_date: date):
+    @app.get(f"/predictions/{model_name}/{date}")
+    async def get_predictions():
+
+        return {"model": model_name, "data:" "Model prediction"}
+    
+def get_features_route(model_name: str, model_config: file, prediction_date: date):
     @app.get(f"/predictions/{model_name}/{date}")
     async def get_predictions():
 

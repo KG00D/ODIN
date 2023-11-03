@@ -1,14 +1,2 @@
 #!/bin/bash
-
-# Exit on any error
-set -e
-
-echo "Building and starting the container..."
-
-# Navigate to the script's directory (in case it's run from elsewhere)
-cd "$(dirname "$0")/.."
-
-# Build and start the container using Docker Compose
-docker-compose up --build
-
-echo "Setup complete. Your container is running on port 4000."
+docker-compose build || exit 1

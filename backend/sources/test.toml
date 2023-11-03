@@ -1,5 +1,4 @@
 [lead_score_predictor]
 id = id
 features = [prev_7day_clicks, prev_14day_clicks, prev_21day_clicks]
-predictions_location = "public.test_table"
-lookback = 30
+

@@ -1,14 +1,2 @@
 #!/bin/bash
-
-# Exit on any error
-set -e
-
-echo "Stopping the container..."
-
-# Navigate to the script's directory (in case it's run from elsewhere)
-cd "$(dirname "$0")/.."
-
-# Stop the container using Docker Compose
 docker-compose down
-
-echo "Container stopped."
